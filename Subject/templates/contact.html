@@ -4,16 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팀원 추가 정보</title>
     <style>
+        @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 700;
+            src: url(../../../packages/pretendard/dist/web/static/woff2-dynamic-subset/Pretendard-Bold.subset.0.woff2) format('woff2'), url(../../../packages/pretendard/dist/web/static/woff-dynamic-subset/Pretendard-Bold.subset.0.woff) format('woff');
+            unicode-range: U+f9ca-fa0b, U+ff03-ff05, U+ff07, U+ff0a-ff0b, U+ff0d-ff19, U+ff1b, U+ff1d, U+ff20-ff5b, U+ff5d, U+ffe0-ffe3, U+ffe5-ffe6;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Pretendard';
+            background-color: #cfe6ff;
+            color: #150e60; 
         }
-        .person-block {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
+        .form-wrapper {
+            width: 80%;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: #ffffff;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .team-add-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
+            gap: 20px; /* 팀원 카드 간격 */
+        }
+        
+        
     </style>
 </head>
 
@@ -21,50 +39,50 @@
     <h1>팀원 추가 정보</h1>
     <section class="team-add-info">
         <div class="team-member1">
-            <img src="{{ url_for('static', filename='member1_mj.jpg') }}" alt="member1 Photo">
+            <img src="{{ url_for('static', filename='member1_mj.png') }}" alt="member1 Photo">
             <h2>김민지</h2>
-            <p>프로젝트 팀장</p>
+            <p><b>프로젝트 팀장</b></p>
             <p>
-                블로그: <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
+                <b>🍏velog:</b> <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
             </p>
             <p>
-                깃헙: <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
+                <b>😈github:</b> <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
             </p>
         </div>
 
         <div class="team-member2">
             <img src="member2.jpg" alt="member2 Photo">
             <h2>박성준</h2>
-            <p>프로젝트 팀원</p>
+            <p><b>프로젝트 팀원</b></p>
             <p>
-                블로그: <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
+                <b>🍏velog:</b> <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
             </p>
             <p>
-                깃헙: <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
+                <b>😈github:</b> <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
             </p>
         </div>
 
         <div class="team-member3">
-            <img src="member3.jpg" alt="member3 Photo">
+            <img src="{{ url_for('static', filename='member3_sh.png') }}" alt="member1 Photo">
             <h2>박소희</h2>
-            <p>프로젝트 팀원</p>
+            <p><b>프로젝트 팀원</b></p>
             <p>
-                블로그: <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
+                <b>🍏velog:</b> <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
             </p>
             <p>
-                깃헙: <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
+                <b>😈github:</b> <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
             </p>
         </div> 
         
         <div class="team-member4">
-            <img src="member4.jpg" alt="member4 Photo">
+            <img src="{{ url_for('static', filename='member4_ys.png') }}" alt="member1 Photo">
             <h2>이예슬</h2>
-            <p>프로젝트 팀원</p>
+            <p><b>프로젝트 팀원</b></p>
             <p>
-                블로그: <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
+                <b>🍏velog:</b> <a href="https://velog.io/@ggororok/posts">https://velog.io/@ggororok/posts</a>
             </p>
             <p>
-                깃헙: <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
+                <b>😈github:</b> <a href="https://github.com/kmj-ggororok">https://github.com/kmj-ggororok</a>
             </p>
         </div> 
 
