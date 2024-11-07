@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀원 정보 입력</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+        }
+        .form-wrapper {
+            width: 420px;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-wrapper > h1 {
+            font-size: 24px;
+            color: #53a7d8;
+            margin-bottom: 20px;
+        }
+        .person-block {
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .person-block > p {
+            margin: 8px 0;
+        }
+        .person-block input[type="text"],
+        .person-block select {
+            width: 100%;
+            height: 44px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .person-block input::placeholder {
+            color: #d2d2d2;
+        }
+        .person-block label {
+            color: #666;
+            margin-bottom: 5px;
+            display: block; /* 라벨을 블록 요소로 설정하여 제목과 선택지가 줄바꿈되도록 함 */
+        }
+        .person-block input[type="checkbox"],
+        .person-block input[type="radio"] {
+            display: none;
+        }
+        .person-block input[type="checkbox"] + label,
+        .person-block input[type="radio"] + label {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 3px 5px 0 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f0f0f5;
+            color: #666;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* 선택된 상태 표시 */
+        .person-block input[type="checkbox"]:checked + label,
+        .person-block input[type="radio"]:checked + label {
+            background-color: #53a7d8;
+            color: #ffffff;
+            border-color: #53a7d8;
+        }
+        button {
+            width: 100%;
+            height: 48px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #53a7d8;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #015c92;
+        }
+        .add-button {
+            background-color: #ccc;
+            color: #333;
+        }
+        .add-button:hover {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <h1>팀원 정보 입력</h1>
+        <form action="/result" method="POST" id="studentForm">
+            <div id="personContainer">
+                <div class="person-block">
+                    <p>이름 <input type="text" name="name[]" placeholder="이름을 입력하세요" required></p>
+                    <p>학번 <input type="text" name="StudentNumber[]" placeholder="학번을 입력하세요" required></p>
+                    <p>성별</p>
+                    <p>
+                        <input type="radio" id="male0" name="gender[0]" value="male" required>
+                        <label for="male0">남성</label>
+                        <input type="radio" id="female0" name="gender[0]" value="female" required>
+                        <label for="female0">여성</label>
+                    </p>
+                    <p>전공 <input type="text" name="major[]" placeholder="전공을 입력하세요" required></p>
+                    <p>프로그래밍 언어</p>
+                    <p>
+                        <input type="checkbox" id="python0" name="programming_language[0][]" value="Python">
+                        <label for="python0">Python</label>
+                        <input type="checkbox" id="c0" name="programming_language[0][]" value="C">
+                        <label for="c0">C</label>
+                        <input type="checkbox" id="cpp0" name="programming_language[0][]" value="C++">
+                        <label for="cpp0">C++</label>
+                        <input type="checkbox" id="java0" name="programming_language[0][]" value="Java">
+                        <label for="java0">Java</label>
+                        <input type="checkbox" id="javascript0" name="programming_language[0][]" value="JavaScript">
+                        <label for="javascript0">JavaScript</label>
+                        <input type="checkbox" id="sql0" name="programming_language[0][]" value="SQL">
+                        <label for="sql0">SQL</label>
+                        <input type="checkbox" id="html0" name="programming_language[0][]" value="HTML">
+                        <label for="html0">HTML</label>
+                    </p>
+                    <p>역할</p>
+                    <p>
+                        <input type="radio" id="leader0" name="role[0]" value="leader">
+                        <label for="leader0">팀장</label>
+                        <input type="radio" id="member0" name="role[0]" value="member">
+                        <label for="member0">팀원</label>
+                    </p>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addPerson()">추가</button>
+            <button type="submit">입력 완료</button>
+        </form>
+    </div>
+
+    <script>
+        function addPerson() {
+            const container = document.getElementById("personContainer");
+            const personCount = container.children.length;
+
+            const personBlock = document.createElement("div");
+            personBlock.className = "person-block";
+            personBlock.innerHTML = `
+                <p>이름 <input type="text" name="name[]" placeholder="이름을 입력하세요" required></p>
+                <p>학번 <input type="text" name="StudentNumber[]" placeholder="학번을 입력하세요" required></p>
+                <p>성별</p>
+                <p>
+                    <input type="radio" id="male${personCount}" name="gender[${personCount}]" value="male" required>
+                    <label for="male${personCount}">남성</label>
+                    <input type="radio" id="female${personCount}" name="gender[${personCount}]" value="female" required>
+                    <label for="female${personCount}">여성</label>
+                </p>
+                <p>전공 <input type="text" name="major[]" placeholder="전공을 입력하세요" required></p>
+                <p>프로그래밍 언어</p>
+                <p>
+                    <input type="checkbox" id="python${personCount}" name="programming_language[${personCount}][]" value="Python">
+                    <label for="python${personCount}">Python</label>
+                    <input type="checkbox" id="c${personCount}" name="programming_language[${personCount}][]" value="C">
+                    <label for="c${personCount}">C</label>
+                    <input type="checkbox" id="cpp${personCount}" name="programming_language[${personCount}][]" value="C++">
+                    <label for="cpp${personCount}">C++</label>
+                    <input type="checkbox" id="java${personCount}" name="programming_language[${personCount}][]" value="Java">
+                    <label for="java${personCount}">Java</label>
+                    <input type="checkbox" id="javascript${personCount}" name="programming_language[${personCount}][]" value="JavaScript">
+                    <label for="javascript${personCount}">JavaScript</label>
+                    <input type="checkbox" id="sql${personCount}" name="programming_language[${personCount}][]" value="SQL">
+                    <label for="sql${personCount}">SQL</label>
+                    <input type="checkbox" id="html${personCount}" name="programming_language[${personCount}][]" value="HTML">
+                    <label for="html${personCount}">HTML</label>
+                </p>
+                <p>역할</p>
+                    <p>
+                        <input type="radio" id="leader0" name="role[0]" value="leader">
+                        <label for="leader0">팀장</label>
+                        <input type="radio" id="member0" name="role[0]" value="member">
+                        <label for="member0">팀원</label>
+                    </p>
+            `;
+
+            container.appendChild(personBlock);
+        }
+    </script>
+</body>
+</html>
