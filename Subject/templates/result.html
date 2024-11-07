@@ -91,13 +91,13 @@
 <body>
     <h1 class="team-title">팀원 정보 출력</h1>
     <div class="container">
-        {% for name, student_number, gender, major, languages, role in students %}
+        {% for name, student_number, gender, major, programming_language, role in students %}
             <div class="student-block">
                 <p><strong>이름:</strong> {{ name }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>학번:</strong> {{ gender }}</p>
                 <p><strong>학번:</strong> {{ major }}</p>
-                <p><strong>학번:</strong> {{ languages }}</p>
+                <p><strong>학번:</strong> {{ programming_language }}</p>
                 <p><strong>학번:</strong> {{ role }}</p>
             </div>
         {% endfor %}
