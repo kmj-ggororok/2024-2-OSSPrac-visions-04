@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 구성원 정보 출력</title>
+    <style>
+        @font-face {
+        font-family: 'yg-jalnan';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+        body {
+            margin: 0; /* 기본 마진 제거 */
+            background-color: #BCE6FF; /* 전체 배경색 설정 */
+            display: flex;
+            flex-direction: column; /* 수직 방향으로 정렬 */
+            min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
+        }
+        .team-title {
+        font-family: 'yg-jalnan';
+        font-size: 20px;
+        text-align: center;
+        background-color: #BCE6FF; 
+        color: #015c92; 
+        padding: 20px;
+        margin: 0;
+        }
+        .container {
+            background-color: #BCE6FF;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            font-family: 'yg-jalnan';
+            font-size: 15px;
+            font-weight: 400;        
+            text-align: center;
+        }       
+        .student-block {
+            background-color: #53a7d8;
+            padding: 15px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        }
+        footer {
+            margin-top: auto;
+            background-color: #015c92;
+            padding: 5px 5px;
+            color: white;
+            font-family: 'yg-jalnan';
+            font-size: 15px;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: left; /* 내용 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            gap: 10px; /* 버튼 간격 */
+        }
+        .footer-button {
+            background-color: #bce6ff; /* 버튼 배경색 */
+            color: #015c92; /* 버튼 글자 색상 */
+            font-family: 'yg-jalnan';
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 5px 10px; /* 버튼 내 여백 */
+            border: none; /* 기본 테두리 제거 */
+            border-radius: 15px; /* 버튼 모서리 둥글게 */
+            text-decoration: none; /* 링크의 기본 밑줄 제거 */
+            transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
+            margin: 0;
+        }
+        .footer-button:hover {
+            background-color: #53a7d8; /* 호버 시 색상 변화 */
+        }
+    </style>
+    <script>
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+    </script>
+</head>
+<body>
+    <h1 class="team-title">팀원 정보 출력</h1>
+    <div class="container">
+        {% for name, student_number in students %}
+            <div class="student-block">
+                <p><strong>이름:</strong> {{ name }}</p>
+                <p><strong>학번:</strong> {{ student_number }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <!--
+    <div class="container">
+        {% for name, student_number, gender, major, languages, role in students %}
+            <div class="student-block">
+                <p><strong>이름:</strong> {{ name }}</p>
+                <p><strong>학번:</strong> {{ student_number }}</p>
+                <p><strong>학번:</strong> {{ gender }}</p>
+                <p><strong>학번:</strong> {{ major }}</p>
+                <p><strong>학번:</strong> {{ languages }}</p>
+                <p><strong>학번:</strong> {{ role }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    -->
+    <footer>
+        <div class="footer-container">
+            <p>contact :</p>
+            <a href="https://github.com/CSID-DGU/2024-2-OSSPrac-visions-04" class="footer-button">GitHub</a>
+            <button onclick="openContactPage()" class="footer-button">연락 정보</button>
+        </div>
+    </footer>
+</body>
+</html>
