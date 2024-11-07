@@ -16,11 +16,16 @@ def input():
 @app.route('/result', methods=['POST'])
 def result():
     # 각 학생의 이름과 학번 데이터를 리스트로 받음
-    names = request.form.getlist('name[]')
-    student_numbers = request.form.getlist('StudentNumber[]')
+    name = request.form.getlist('name[]')
+    student_number = request.form.getlist('StudentNumber[]')
+    major = request.form.getlist('major[]')
+    email = request.form.getlist('email[]')
+    gender = request.form.getlist('gender[0]')
+    programming_language = request.form.getlist('programming_language[0][]')
+    role = request.form.getlist('role[0]')
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
-    return render_template('result.html', students=zip(names, student_numbers))
+    return render_template('result.html', students = zip(name, student_number, major, email, gender, programming_language, role))
 
 # 팀 연락 정보 출력하는 경로 
 @app.route('/contact')
