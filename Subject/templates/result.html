@@ -6,10 +6,12 @@
     <title>팀 구성원 정보 출력</title>
     <style>
         @font-face {
-        font-family: 'yg-jalnan';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 900;
+            src: url(../../../packages/pretendard/dist/web/static/woff2-dynamic-subset/Pretendard-Black.subset.0.woff2) format('woff2'), url(../../../packages/pretendard/dist/web/static/woff-dynamic-subset/Pretendard-Black.subset.0.woff) format('woff');
+            unicode-range: U+f9ca-fa0b, U+ff03-ff05, U+ff07, U+ff0a-ff0b, U+ff0d-ff19, U+ff1b, U+ff1d, U+ff20-ff5b, U+ff5d, U+ffe0-ffe3, U+ffe5-ffe6;
         }
         body {
             margin: 0; /* 기본 마진 제거 */
@@ -89,15 +91,6 @@
 <body>
     <h1 class="team-title">팀원 정보 출력</h1>
     <div class="container">
-        {% for name, student_number in students %}
-            <div class="student-block">
-                <p><strong>이름:</strong> {{ name }}</p>
-                <p><strong>학번:</strong> {{ student_number }}</p>
-            </div>
-        {% endfor %}
-    </div>
-    <!--
-    <div class="container">
         {% for name, student_number, gender, major, languages, role in students %}
             <div class="student-block">
                 <p><strong>이름:</strong> {{ name }}</p>
@@ -109,7 +102,6 @@
             </div>
         {% endfor %}
     </div>
-    -->
     <footer>
         <div class="footer-container">
             <p>contact :</p>
