@@ -1,121 +1,135 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>팀 구성원 정보 출력</title>
-    <style>
-        @font-face {
-        font-family: 'yg-jalnan';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-        }
-        body {
-            margin: 0; /* 기본 마진 제거 */
-            background-color: #BCE6FF; /* 전체 배경색 설정 */
-            display: flex;
-            flex-direction: column; /* 수직 방향으로 정렬 */
-            min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
-        }
-        .team-title {
-        font-family: 'yg-jalnan';
-        font-size: 20px;
-        text-align: center;
-        background-color: #BCE6FF; 
-        color: #015c92; 
-        padding: 20px;
-        margin: 0;
-        }
-        .container {
-            background-color: #BCE6FF;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 10px;
-            font-family: 'yg-jalnan';
-            font-size: 15px;
-            font-weight: 400;        
-            text-align: center;
-        }       
-        .student-block {
-            background-color: #53a7d8;
-            padding: 15px;
-            border-radius: 8px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
-        }
-        footer {
-            margin-top: auto;
-            background-color: #015c92;
-            padding: 5px 5px;
-            color: white;
-            font-family: 'yg-jalnan';
-            font-size: 15px;
-            text-align: center;
-        }
-        .footer-container {
-            display: flex;
-            justify-content: left; /* 내용 중앙 정렬 */
-            align-items: center; /* 세로 중앙 정렬 */
-            gap: 10px; /* 버튼 간격 */
-        }
-        .footer-button {
-            background-color: #bce6ff; /* 버튼 배경색 */
-            color: #015c92; /* 버튼 글자 색상 */
-            font-family: 'yg-jalnan';
-            font-size: 10px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            padding: 5px 10px; /* 버튼 내 여백 */
-            border: none; /* 기본 테두리 제거 */
-            border-radius: 15px; /* 버튼 모서리 둥글게 */
-            text-decoration: none; /* 링크의 기본 밑줄 제거 */
-            transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
-            margin: 0;
-        }
-        .footer-button:hover {
-            background-color: #53a7d8; /* 호버 시 색상 변화 */
-        }
-    </style>
-    <script>
-        function openContactPage() {
-            window.open("/contact", "contactPage", "width=600,height=400");
-        }
-    </script>
-</head>
-<body>
-    <h1 class="team-title">팀원 정보 출력</h1>
-    <div class="container">
-        {% for name, student_number in students %}
-            <div class="student-block">
-                <p><strong>이름:</strong> {{ name }}</p>
-                <p><strong>학번:</strong> {{ student_number }}</p>
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>팀 구성원 정보 출력</title>
+        <style>
+            @font-face {
+                font-family: 'Pretendard';
+                font-style: normal;
+                font-display: swap;
+                font-weight: 900;
+                src: url(../../../packages/pretendard/dist/web/static/woff2-dynamic-subset/Pretendard-Black.subset.91.woff2) format('woff2'), url(../../../packages/pretendard/dist/web/static/woff-dynamic-subset/Pretendard-Black.subset.91.woff) format('woff');
+                unicode-range: U+20-22, U+27-2a, U+2c-39, U+3a-3b, U+3f, U+41-4e, U+4f-5d, U+61-7b, U+7d, U+a0-a1, U+ab, U+ad-ae, U+b7, U+bb, U+bf, U+2013-2014, U+201c-201d, U+2122, U+ac00, U+ace0, U+ae30, U+b2e4, U+b85c, U+b9ac, U+c0ac, U+c2a4, U+c2dc, U+c774, U+c778, U+c9c0, U+d558;
+            }
+            @font-face {
+                font-family: 'Pretendard-Regular';
+                font-style: normal;
+                font-display: swap;
+                font-weight: 400;
+                src: url(../../../packages/pretendard/dist/web/static/woff2-dynamic-subset/Pretendard-Regular.subset.91.woff2) format('woff2'), url(../../../packages/pretendard/dist/web/static/woff-dynamic-subset/Pretendard-Regular.subset.91.woff) format('woff');
+                unicode-range: U+20-22, U+27-2a, U+2c-39, U+3a-3b, U+3f, U+41-4e, U+4f-5d, U+61-7b, U+7d, U+a0-a1, U+ab, U+ad-ae, U+b7, U+bb, U+bf, U+2013-2014, U+201c-201d, U+2122, U+ac00, U+ace0, U+ae30, U+b2e4, U+b85c, U+b9ac, U+c0ac, U+c2a4, U+c2dc, U+c774, U+c778, U+c9c0, U+d558;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                font-family: "Pretendard";
+                background-color: #cfe6ff;
+                flex-direction: column; /* 수직 방향으로 정렬 */
+                min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
+            }
+            .form-wrapper {
+                width: 800px;
+                height: 90vh;
+                padding: 40px;
+                box-sizing: border-box;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow-y: auto;
+                overflow-x: auto;
+            }
+            .form-wrapper > h1 {
+                    font-size: 24px;
+                    font-family: 'Pretendard';
+                    color: #150e60;
+                    text-align: left;
+                    margin-top: 0px;
+                    margin-bottom: 20px;
+                }
+            table {
+                width: 100%; /* 테이블의 너비를 100%로 설정 */
+                border-collapse: collapse; /* 경계선을 겹치게 설정 */
+            }
+            th, td {
+                background-color: #f9f9f9;
+                border: 1px solid #ddd; /* 셀의 경계선 설정 */
+                padding: 10px; /* 셀의 안쪽 여백 설정 */
+                text-align: left; /* 텍스트 왼쪽 정렬 */
+                font-family: 'Pretendard-Regular';
+                white-space: nowrap; /* 텍스트를 한 줄로 제한 */
+            }
+            th {
+                background-color: #150e60; /* 헤더 배경색 설정 */
+                color: #ffffff;
+                font-family: 'Pretendard';
+            }
+            .button-container {
+                display: flex;
+                justify-content: left; /* 버튼을 중앙 정렬 */
+                margin-top: 24px; /* 테이블과 버튼 간격 설정 */
+            }
+            .button {
+                display: inline-block; /* 버튼을 인라인 블록 요소로 설정 */
+                background-color: #ccc; /* 버튼 배경색 */
+                color: #333; /* 버튼 글자 색상 */
+                border: none; /* 기본 테두리 제거 */
+                border-radius: 5px; /* 모서리 둥글게 */
+                padding: 10px 20px; /* 패딩 추가 */
+                text-decoration: none; /* 링크의 기본 밑줄 제거 */
+                cursor: pointer; /* 커서 모양 변경 */
+                margin: 0 5px; /* 버튼 간격 설정 */
+                transition: background-color 0.3s; /* 호버 효과 */
+                font-family: 'Pretendard-Regular';
+                font-size: 14px;
+            }
+
+            .button:hover {
+                background-color: #aaa; /* 호버 시 색상 변화 */
+            }
+        </style>
+         <script>
+             function openContactPage() {
+                window.open("/contact", "contactPage", "width=600,height=400");
+            }
+        </script>
+    </head>
+    <body>
+        <div class="form-wrapper">
+            <h1>팀 정보 출력</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>이름</th>
+                        <th>학번</th>
+                        <th>전공</th>
+                        <th>이메일</th>
+                        <th>성별</th>
+                        <th>프로그래밍 언어</th>
+                        <th>역할</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, student_number, major, email, gender, programming_language, role in students %}
+                        <tr>
+                            <td>{{ name }}</td>
+                            <td>{{ student_number }}</td>
+                            <td>{{ major }}</td>
+                            <td>{{ email }}</td>
+                            <td>{{ gender }}</td>
+                            <td>{{ programming_language }}</td>
+                            <td>{{ role }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="button-container">
+                <a href="https://github.com/CSID-DGU/2024-2-OSSPrac-visions-04" class="button">팀 GitHub</a>
+                <button onclick="openContactPage()" class="button">팀원 추가 정보</button>
             </div>
-        {% endfor %}
-    </div>
-    <!--
-    <div class="container">
-        {% for name, student_number, gender, major, languages, role in students %}
-            <div class="student-block">
-                <p><strong>이름:</strong> {{ name }}</p>
-                <p><strong>학번:</strong> {{ student_number }}</p>
-                <p><strong>학번:</strong> {{ gender }}</p>
-                <p><strong>학번:</strong> {{ major }}</p>
-                <p><strong>학번:</strong> {{ languages }}</p>
-                <p><strong>학번:</strong> {{ role }}</p>
-            </div>
-        {% endfor %}
-    </div>
-    -->
-    <footer>
-        <div class="footer-container">
-            <p>contact :</p>
-            <a href="https://github.com/CSID-DGU/2024-2-OSSPrac-visions-04" class="footer-button">GitHub</a>
-            <button onclick="openContactPage()" class="footer-button">연락 정보</button>
         </div>
-    </footer>
-</body>
-</html>
+    </body>
+    </html>
