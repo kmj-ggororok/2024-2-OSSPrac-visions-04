@@ -5,4 +5,4 @@
 <img src="https://github.com/user-attachments/assets/c6934e3e-aaf1-40f6-af3a-cdffc969c965" alt="폴더정보">
 
 ### 메인 페이지
-<img src="https://github.com/user-attachments/assets/338ab326-729e-436b-b385-c67810b908af">
+<img src="https://github.com/user-attachments/assets/338ab326-729e-436b-b385-c67810b908af" alt="메인페이지">
