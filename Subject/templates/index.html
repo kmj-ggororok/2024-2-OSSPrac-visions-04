@@ -87,14 +87,23 @@
         .photo-container {
             display: flex;
             justify-content: center; /* 사진을 중앙에 배치 */
-            gap: 15px; /* 사진 사이 간격 */
+            gap: 50px; /* 사진 사이 간격 */
             position: absolute;
             bottom: 100px;
             width: 100%;
         }
+        .photo-container div {
+            text-align: center; /* 이름을 중앙 정렬 */
+        }
         .photo-container img {
             width: 200px;
             border-radius: 8px;
+        }
+        .name {
+            font-family: 'Pretendard-Regular';
+            font-size: 25px;
+            color: #150e60;
+            margin-top: 10px;
         }
 
     </style> 
@@ -124,10 +133,22 @@
 
     <h1>비전공생들 + 우리들의 visions</h1>
     <div class="photo-container">
-        <img src="{{ url_for('static', filename='member1_mj.png') }}" alt="member1 Photo">
-        <img src="{{ url_for('static', filename='member2_sj.png') }}" alt="member2 Photo">
-        <img src="{{ url_for('static', filename='member3_sh.png') }}" alt="member3 Photo">
-        <img src="{{ url_for('static', filename='member4_ys.png') }}" alt="member4 Photo">
+        <div>
+            <img src="{{ url_for('static', filename='member1_mj.png') }}" alt="member1 Photo">
+            <p class="name">김민지</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='member2_sj.png') }}" alt="member2 Photo">
+            <p class="name">박성준</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='member3_sh.png') }}" alt="member3 Photo">
+            <p class="name">박소희</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='member4_ys.png') }}" alt="member4 Photo">
+            <p class="name">이예슬</p>
+        </div>
     </div>
 </body>
 </html>
