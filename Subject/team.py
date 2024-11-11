@@ -20,7 +20,7 @@ def result():
     student_numbers = request.form.getlist('StudentNumber[]')
     majors = request.form.getlist('major[]')
     emails = request.form.getlist('email[]')
-    # genders = request.form.getlist('gender[0]')
+    phone_number = request.form.getlist('phone_number[]')
     
     # 각 학생의 프로그래밍 언어와 역할을 가져오기 위해 리스트 생성
     genders = []
@@ -41,6 +41,7 @@ def result():
             student_numbers[i],
             majors[i],
             emails[i],
+            phone_number[i],
             genders[i],
             ', '.join(programming_languages[i]),  # 배열을 문자열로 변환
             roles[i]
