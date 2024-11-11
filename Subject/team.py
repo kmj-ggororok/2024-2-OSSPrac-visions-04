@@ -49,5 +49,10 @@ def result():
     # 결과 페이지로 전달
     return render_template('result.html', students=students)
 
+# 연락 정보 페이지를 보여주는 경로
+@app.route('/contact')
+def contact_info():
+    return render_template('contact.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
