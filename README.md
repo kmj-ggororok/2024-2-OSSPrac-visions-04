@@ -13,7 +13,7 @@
 
 ### 폴더 정보
 <img src="https://github.com/user-attachments/assets/c6934e3e-aaf1-40f6-af3a-cdffc969c965" alt="폴더정보">
-
+</br>
 </br>
 
 ### 메인 페이지
