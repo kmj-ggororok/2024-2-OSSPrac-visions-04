@@ -2,9 +2,20 @@
 <html lang="en">
 <body>
     <form action="/result" method="POST">
+
         <p>Name <input type='text' name='name'></p>
-        <p><b>* Student Number</b> <input type='text' id='StudentNumber' name='StudentNumber' /></p>
-        <button type='submit' name='submit' value='submit'>submit</button>
+        <p>Student Number <input type='text' id='StudentNumber' name='StudentNumber' /></p>
+        <p>Gender <br></p>
+        <label><input type="radio" name="gender" value="Male">Male</label>
+        <label><input type="radio" name="gender" value="Female">Female</label>
+        <p>Major <input type='text' id='major' name='major' /></p>
+        <p> Programming Languages</p>
+        <label><input type = "checkbox" value = "Python"  name = "languages"/>Python</label>
+        <label><input type = "checkbox" value = "Java" name = "languages"/>Java</label>
+        <label><input type = "checkbox" value = "HTML" name = "languages"/>Java</label>
+        <label><input type = "checkbox" value = "C++" name = "languages"/>Java</label>
+
+        <br><button type='submit' name='submit' value='submit'>submit</button>
     </form>
 </body>
 </html>
