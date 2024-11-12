@@ -107,18 +107,20 @@
                         <th>학번</th>
                         <th>전공</th>
                         <th>이메일</th>
+                        <th>전화번호</th>
                         <th>성별</th>
                         <th>프로그래밍 언어</th>
                         <th>역할</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for name, student_number, major, email, gender, programming_language, role in students %}
+                    {% for name, student_number, major, email, phone_number, gender, programming_language, role in students %}
                         <tr>
                             <td>{{ name }}</td>
                             <td>{{ student_number }}</td>
                             <td>{{ major }}</td>
                             <td>{{ email }}</td>
+                            <td>{{ phone_number }}</td>
                             <td>{{ gender }}</td>
                             <td>{{ programming_language }}</td>
                             <td>{{ role }}</td>
