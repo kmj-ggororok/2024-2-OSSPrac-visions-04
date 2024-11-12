@@ -55,5 +55,6 @@ def result():
 def contact_info():
     return render_template('contact.html')
 
+# 외부에서 Flask 서버 접근 가능
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=False)
