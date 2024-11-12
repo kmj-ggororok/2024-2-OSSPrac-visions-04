@@ -9,10 +9,11 @@
 | 박성준 | 프로젝트 팀원 |index 페이지 구성, 전체 디자인 |
 | 박소희 | 프로젝트 팀원 |result 페이지 구성, 전체 디자인 |
 | 이예슬 | 프로젝트 팀원 |input 페이지 구성, 전체 디자인 |
-
+</br>
 
 ### 폴더 정보
 <img src="https://github.com/user-attachments/assets/c6934e3e-aaf1-40f6-af3a-cdffc969c965" alt="폴더정보">
+</br>
 
 ### 메인 페이지
 <img src="https://github.com/user-attachments/assets/338ab326-729e-436b-b385-c67810b908af" alt="메인페이지">
