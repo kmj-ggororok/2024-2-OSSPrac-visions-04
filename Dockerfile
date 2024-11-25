@@ -5,7 +5,7 @@ FROM tiangolo/uwsgi-nginx-flask:latest
 ## WORKDIR /app
 
 # 애플리케이션 파일 추가
-COPY . /app
+COPY ./Subject /app
 
 # 애플리케이션 실행 명령
 ## CMD ["python3", "./Subject/team.py"]
