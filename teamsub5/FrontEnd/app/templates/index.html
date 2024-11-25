@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+    <title>visions 팀 소개</title>
+    <style>
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(to top, #cfe6ff 70%, #cfe6ff 30%);
+        }
+        .top-bar {
+            width: 100%;
+            height: 80px;
+            background-color: #150e60;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .logo {
+            font-family: 'Pretendard-Regular';
+            width: 200px;
+            height: 200px;
+            background-color: #150e60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 50px;
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h4 {
+            font-family: 'Pretendard-Regular';
+            color: #fff;
+            font-size: 15px;
+            position: absolute;
+            top: 20px;
+            left: 100px;
+            margin: 0;
+        }
+        h5 {
+            font-family: 'Pretendard-Regular';
+            color: #fff;
+            font-size: 15px;
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            margin: 0;
+        }
+        h1 {
+            font-family: 'Pretendard-Regular';
+            font-size: 45px;
+            color: #150e60;
+            position: absolute;
+            bottom: 400px;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3)
+        }
+        button {
+            padding: 10px 10px; /* 크기 조절 */
+            background-color: #cfe6ff; /* 배경색 */
+            color: white; /* 텍스트 색상 */
+            border: none; /* 테두리 제거 */
+            border-radius: 6px; /* 모서리 둥글기 */
+            cursor: pointer; /* 마우스를 올렸을 때 손 모양 */
+            font-size: 16px; /* 글꼴 크기 */
+            color: #150e60;
+            transition: background-color 0.3s ease; /* 색상 전환 효과 */
+        }
+        button:hover {
+            background-color: #A5B9D1;
+        }
+        .photo-container {
+            display: flex;
+            justify-content: center; /* 사진을 중앙에 배치 */
+            gap: 50px; /* 사진 사이 간격 */
+            position: absolute;
+            bottom: 70px;
+            width: 100%;
+        }
+        .photo-container div {
+            text-align: center; /* 이름을 중앙 정렬 */
+        }
+        .photo-container img {
+            width: 200px;
+            border-radius: 8px;
+        }
+        .name {
+            font-family: 'Pretendard-Regular';
+            font-size: 25px;
+            color: #150e60;
+            margin-top: 10px;
+        }
+
+    </style> 
+    <script>
+        function showContactInfo() {
+            alert("github 주소 : https://github.com/CSID-DGU/2024-2-OSSPrac-visions-04");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=1200,height=700");
+        }
+        function openInputPage() {
+            window.open("/input", "InputPage", "width=800,height=600");
+        }
+    </script>
+</head>
+<body>
+    <div class="top-bar"></div>
+    <h4>팀원 정보 입력 페이지 : <button onclick="openInputPage()"> 이동 </button></h4>
+    <h5> contact : 
+        <button onclick="showContactInfo()"> git</button> 
+        <button onclick="openContactPage()"> 연락정보</button> 
+    </h5>
+
+    <div class="logo">
+        visions
+    </div>
+
+    <h1>비전공생들 + 우리들의 visions</h1>
+    <div class="photo-container">
+        <div>
+            <img src="{{ url_for('static', filename='member1_mj.png') }}" alt="member1 Photo">
+            <p class="name">김민지</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='member2_sj.png') }}" alt="member2 Photo">
+            <p class="name">박성준</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='member3_sh.png') }}" alt="member3 Photo">
+            <p class="name">박소희</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='member4_ys.png') }}" alt="member4 Photo">
+            <p class="name">이예슬</p>
+        </div>
+    </div>
+</body>
+</html>
