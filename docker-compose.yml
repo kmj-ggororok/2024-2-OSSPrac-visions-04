@@ -1,7 +1,7 @@
 version: "3.0"
   
 services:
-  web:
+  team_web:
     build: .
     image:  ggororok/team_p
     ports:
