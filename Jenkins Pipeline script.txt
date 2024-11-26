@@ -1,0 +1,50 @@
+pipeline {
+    agent any  
+
+    triggers {
+            pollSCM('*/3 * * * *')
+    } 
+
+    environment {
+        DOCKER = credentials('dockerhub')    
+    } 
+
+    stages {
+        stage('Prepare') {
+     agent any 
+
+            steps {                         
+        git url : 'https://github.com/CSID-DGU/2024-2-OSSPrac-visions-04.git',
+                        branch : 'main',
+                        credentialsId: 'github'
+            }
+        }
+
+
+        stage('Build') {
+
+            steps {
+                dir('/var/jenkins_home/workspace/frontapp@2/teamsub5'){
+                    sh 'docker compose build frontapp'
+                }
+           }
+        }
+
+        stage('Tag') {
+            steps {
+                script {
+                    sh "docker tag parkseongjoon/frontapp parkseongjoon/frontapp:${BUILD_NUMBER}"
+                }
+            }
+        }
+
+        stage('Push') {
+            steps {
+                script {
+                    sh "docker login -u $DOCKER_USR -p $DOCKER_PSW"
+                    sh "docker push parkseongjoon/frontapp:${BUILD_NUMBER}"
+                }
+            }
+        }
+    }
+}
