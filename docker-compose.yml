@@ -1,8 +1,0 @@
-version: "3.0"
-  
-services:
-  team_web:
-    build: .
-    image:  ggororok/team_p
-    ports:
-      - "5000:5000"
